@@ -57,7 +57,7 @@ function ThreadCard({
               />
             </Link>
 
-            { isComment && <div className="thread-card_bar" />}
+            {(comments.length > 0 || isComment) && <div className="thread-card_bar" />}
           </div>
 
           <div className="flex w-full flex-col">
