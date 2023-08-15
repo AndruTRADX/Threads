@@ -2,6 +2,7 @@ import { currentUser } from '@clerk/nextjs'
 import { redirect } from 'next/navigation'
 
 import ThreadCard from '@/components/cards/ThreadCard'
+import Pagination from '@/components/shared/Pagination'
 
 import { fetchPosts } from '@/lib/actions/thread.actions'
 import { fetchUser } from '@/lib/actions/user.actions'
@@ -28,7 +29,7 @@ async function Home({
 
       <section className="mt-9 flex flex-col gap-10">
         {result.posts.length === 0 ? (
-          <p className="no-result">No threads found :(</p>
+          <p className="no-result">No threads found</p>
         ) : (
           <>
             {result.posts.map((post) => (
@@ -47,6 +48,12 @@ async function Home({
           </>
         )}
       </section>
+
+      <Pagination
+        path="/"
+        pageNumber={searchParams?.page ? +searchParams.page : 1}
+        isNext={result.isNext}
+      />
     </>
   )
 }
