@@ -41,6 +41,7 @@ export function ProfileHeader({
           </div>
         </div>
       </div>
+
       {/* TODO: Community */}
 
       <p className="mt-6 max-w-lg text-base-regular text-light-2">{bio}</p>

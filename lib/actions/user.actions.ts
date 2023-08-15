@@ -160,6 +160,9 @@ export async function getActivity(userId: string) {
     }).populate({
       path: 'author',
       model: User,
+      options: {
+        sort: { createdAt: 'desc' }
+      },
       select: 'name image _id',
     })
 
