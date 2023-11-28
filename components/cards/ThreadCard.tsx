@@ -41,8 +41,8 @@ function ThreadCard({
 }: Props) {
   return (
     <article
-      className={`flex w-full flex-col rounded-tr-xl border border-dark-4 ${
-        isComment ? 'px-0 xs:px-7' : 'bg-dark-2 p-7'
+      className={`flex w-full flex-col rounded-tr-xl   ${
+        isComment ? 'p-0' : 'bg-dark-2 p-7 border border-dark-4'
       }`}
     >
       <div className="flex items-start justify-between">
@@ -57,7 +57,7 @@ function ThreadCard({
               />
             </Link>
 
-            {(comments.length > 0 || isComment) && <div className="thread-card_bar" />}
+            {(comments.length > 0) && <div className="thread-card_bar" />}
           </div>
 
           <div className="flex w-full flex-col">
@@ -124,7 +124,7 @@ function ThreadCard({
       </div>
 
       {!isComment && comments.length > 0 && (
-        <div className="ml-1 mt-3 flex items-center gap-2">
+        <div className="ml-1 pt-3 flex items-center gap-2">
           {comments.slice(0, 2).map((comment, index) => (
             <Image
               key={index}
